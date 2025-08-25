@@ -6,7 +6,6 @@ import morgan from 'morgan';
 import hpp from 'hpp';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
-import mongoSanitize from 'express-mongo-sanitize';
 
 import config from './config';
 import { serveSwagger, setupSwagger } from './swagger';
@@ -20,7 +19,6 @@ const app: Application = express();
 
 app.use(helmet());
 app.use(hpp());
-app.use(mongoSanitize());
 app.use(compression());
 
 if (!config.isProd) {
