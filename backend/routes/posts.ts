@@ -21,7 +21,7 @@ const postValidation = [
 
 /**
  * @openapi
- * /posts:
+ * /api/posts:
  *   get:
  *     summary: Pobierz wszystkie posty
  *     tags:
@@ -34,7 +34,7 @@ router.get('/', getAllPosts);
 
 /**
  * @openapi
- * /posts/{id}:
+ * /api/posts/{id}:
  *   get:
  *     summary: Pobierz post po ID
  *     tags:
@@ -65,7 +65,7 @@ router.get(
 
 /**
  * @openapi
- * /posts:
+ * /api/posts:
  *   post:
  *     summary: Utwórz nowy post
  *     tags:
@@ -97,6 +97,7 @@ router.post(
   (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+    if ('id' in req.body) delete req.body.id;
     next();
   },
   createPost
@@ -104,7 +105,7 @@ router.post(
 
 /**
  * @openapi
- * /posts/{id}:
+ * /api/posts/{id}:
  *   put:
  *     summary: Zaktualizuj post
  *     tags:
@@ -151,7 +152,7 @@ router.put(
 
 /**
  * @openapi
- * /posts/{id}:
+ * /api/posts/{id}:
  *   delete:
  *     summary: Usuń post
  *     tags:

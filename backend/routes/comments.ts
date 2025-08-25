@@ -13,7 +13,7 @@ const commentValidation = [
 
 /**
  * @openapi
- * /comments:
+ * /api/comments:
  *   post:
  *     summary: Dodaj komentarz do posta
  *     tags:
@@ -52,7 +52,7 @@ router.post(
 
 /**
  * @openapi
- * /comments/{id}:
+ * /api/comments/{id}:
  *   put:
  *     summary: Edytuj komentarz
  *     tags:
@@ -96,7 +96,7 @@ router.put(
 
 /**
  * @openapi
- * /comments/{id}:
+ * /api/comments/{id}:
  *   delete:
  *     summary: Usuń komentarz
  *     tags:

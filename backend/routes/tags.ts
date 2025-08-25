@@ -2,13 +2,13 @@ import { Router } from "express";
 import type { Request, Response, NextFunction } from "express";
 import { body, validationResult } from "express-validator";
 import auth from "../middleware/authMiddleware";
-import { getAllTags, createTag } from "../controllers/tagController";
+import { getAllTags, createTag, deleteTag } from "../controllers/tagController";
 
 const router = Router();
 
 /**
  * @openapi
- * /tags:
+ * /api/tags:
  *   get:
  *     summary: Pobierz wszystkie tagi
  *     tags:
@@ -21,7 +21,7 @@ router.get("/", getAllTags);
 
 /**
  * @openapi
- * /tags:
+ * /api/tags:
  *   post:
  *     summary: Utwórz nowy tag
  *     tags:
@@ -54,5 +54,28 @@ router.post(
   },
   createTag
 );
+
+/**
+ * @openapi
+ * /api/tags/{id}:
+ *   delete:
+ *     summary: Usuń tag
+ *     tags:
+ *       - Tags
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Tag usunięty
+ *       404:
+ *         description: Tag nie znaleziony
+ */
+router.delete("/:id", auth, deleteTag);
 
 export default router;

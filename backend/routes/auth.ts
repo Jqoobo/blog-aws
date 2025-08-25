@@ -7,7 +7,7 @@ const router = Router();
 const registerValidation = [
 /**
  * @openapi
- * /auth/register:
+ * /api/auth/register:
  *   post:
  *     summary: Rejestracja nowego użytkownika
  *     tags:
@@ -49,7 +49,7 @@ router.post(
 const loginValidation = [
 /**
  * @openapi
- * /auth/login:
+ * /api/auth/login:
  *   post:
  *     summary: Logowanie użytkownika
  *     tags:

@@ -35,7 +35,8 @@ export async function createPost(
   userId: string
 ): Promise<IPost> {
   const post = new Post({ ...data, author: userId });
-  return post.save();
+  const savedPost = await post.save();
+  return savedPost.populate('author', 'username');
 }
 
 export async function updatePost(

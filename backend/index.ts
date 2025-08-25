@@ -6,7 +6,6 @@ import morgan from 'morgan';
 import hpp from 'hpp';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
-
 import config from './config';
 import { serveSwagger, setupSwagger } from './swagger';
 import authRoutes from './routes/auth';
@@ -27,7 +26,7 @@ if (!config.isProd) {
 
 app.use(express.json());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
-app.use('/docs', serveSwagger, setupSwagger);
+app.use('/swagger', serveSwagger, setupSwagger);
 
 app.get('/', (_req: Request, res: Response) => res.send('MERN Blog API is running'));
 
