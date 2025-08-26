@@ -38,7 +38,7 @@ router.get("/", getAllTags);
  *               name:
  *                 type: string
  *     responses:
- *       201:
+ *       200:
  *         description: Tag utworzony
  *       400:
  *         description: Błąd walidacji

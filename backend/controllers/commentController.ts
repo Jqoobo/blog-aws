@@ -3,7 +3,7 @@ import {
   createCommentService,
   updateCommentService,
   deleteCommentService,
-} from '..//services/commentService';
+} from '../services/commentService';
 
 export async function createComment(
   req: Request,
@@ -11,11 +11,12 @@ export async function createComment(
   next: NextFunction
 ): Promise<void> {
   try {
+    const userId = (req as any).user._id || (req as any).user.id;
     const comment = await createCommentService(
       req.body,
-      (req as any).user.id
+      userId
     );
-    res.status(201).json(comment);
+    res.status(200).json(comment);
   } catch (err) {
     next(err);
   }
@@ -27,10 +28,11 @@ export async function updateComment(
   next: NextFunction
 ): Promise<void> {
   try {
+    const userId = (req as any).user._id || (req as any).user.id;
     const comment = await updateCommentService(
       req.params.id,
       req.body.content,
-      (req as any).user.id
+      userId
     );
     res.json(comment);
   } catch (err) {
@@ -44,7 +46,8 @@ export async function deleteComment(
   next: NextFunction
 ): Promise<void> {
   try {
-    await deleteCommentService(req.params.id, (req as any).user.id);
+    const userId = (req as any).user._id || (req as any).user.id;
+    await deleteCommentService(req.params.id, userId);
     res.json({ message: 'Comment deleted' });
   } catch (err) {
     next(err);

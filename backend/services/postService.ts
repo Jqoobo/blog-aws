@@ -1,16 +1,20 @@
-import Post, { IPost } from '../models/Post';
-import Comment from '../models/Comment';
+import Post, { IPost } from "../models/Post";
+import Comment from "../models/Comment";
 
-interface ListOptions { page?: number; limit?: number; }
+interface ListOptions {
+  page?: number;
+  limit?: number;
+}
 
-export async function listPosts({
-  page = 1,
-  limit = 10,
-}: ListOptions): Promise<{ posts: IPost[]; total: number }> {
+export async function listPosts({ page = 1, limit = 10 }: ListOptions): Promise<{ posts: IPost[]; total: number }> {
   const skip = (page - 1) * limit;
   const posts = await Post.find()
-    .populate('author', 'username')
-    .populate('tags', 'name slug')
+    .populate("author", "username")
+    .populate("tags", "name slug")
+    .populate({
+      path: "comments",
+      populate: { path: "author", select: "username" },
+    })
     .sort({ createdAt: -1 })
     .skip(skip)
     .limit(limit);
@@ -20,33 +24,30 @@ export async function listPosts({
 
 export async function getPost(id: string): Promise<IPost> {
   const post = await Post.findById(id)
-    .populate('author', 'username')
-    .populate('tags', 'name slug');
+    .populate("author", "username")
+    .populate("tags", "name slug")
+    .populate({
+      path: "comments",
+      populate: { path: "author", select: "username" },
+    });
   if (!post) {
-    const err = new Error('Post not found');
+    const err = new Error("Post not found");
     (err as any).statusCode = 404;
     throw err;
   }
   return post;
 }
 
-export async function createPost(
-  data: Partial<IPost>,
-  userId: string
-): Promise<IPost> {
+export async function createPost(data: Partial<IPost>, userId: string): Promise<IPost> {
   const post = new Post({ ...data, author: userId });
   const savedPost = await post.save();
-  return savedPost.populate('author', 'username');
+  return savedPost.populate("author", "username");
 }
 
-export async function updatePost(
-  id: string,
-  data: Partial<IPost>,
-  userId: string
-): Promise<IPost> {
-  const post = await Post.findById(id) as (IPost & { author: any, save: () => Promise<IPost> }) | null;
-  if (!post || post.author?.toString() !== userId) {
-    const err = new Error('Not authorized');
+export async function updatePost(id: string, data: Partial<IPost>, userId: string): Promise<IPost> {
+  const post = (await Post.findById(id)) as (IPost & { author: any; save: () => Promise<IPost> }) | null;
+  if (!post || String(post.author) !== userId) {
+    const err = new Error("Not authorized");
     (err as any).statusCode = 403;
     throw err;
   }
@@ -54,13 +55,10 @@ export async function updatePost(
   return post.save();
 }
 
-export async function deletePost(
-  id: string,
-  userId: string
-): Promise<void> {
-  const post = await Post.findById(id) as (IPost & { author: any, deleteOne: () => Promise<void> }) | null;
+export async function deletePost(id: string, userId: string): Promise<void> {
+  const post = (await Post.findById(id)) as (IPost & { author: any; deleteOne: () => Promise<void> }) | null;
   if (!post || post.author?.toString() !== userId) {
-    const err = new Error('Not authorized');
+    const err = new Error("Not authorized");
     (err as any).statusCode = 403;
     throw err;
   }

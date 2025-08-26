@@ -84,7 +84,7 @@ router.get(
  *               content:
  *                 type: string
  *     responses:
- *       201:
+ *       200:
  *         description: Post utworzony
  *       400:
  *         description: Błąd walidacji

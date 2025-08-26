@@ -9,7 +9,7 @@ export async function register(
 ): Promise<void> {
   try {
     const user = await registerUser(req.body);
-    res.status(201).json({ message: 'User created', user });
+    res.status(200).json({ message: 'User created', user });
   } catch (err) {
     next(err);
   }

@@ -24,7 +24,7 @@ const registerValidation = [
  *               password:
  *                 type: string
  *     responses:
- *       201:
+ *       200:
  *         description: Użytkownik zarejestrowany
  *       400:
  *         description: Błąd walidacji

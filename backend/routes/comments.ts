@@ -33,7 +33,7 @@ const commentValidation = [
  *                 type: string
  *                 description: ID posta
  *     responses:
- *       201:
+ *       200:
  *         description: Komentarz utworzony
  *       400:
  *         description: Błąd walidacji

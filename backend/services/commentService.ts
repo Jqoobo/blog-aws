@@ -1,4 +1,5 @@
 import Comment, { IComment } from "../models/Comment";
+import Post from "../models/Post";
 
 interface CreateCommentDTO {
   content: string;
@@ -7,7 +8,11 @@ interface CreateCommentDTO {
 
 export async function createCommentService({ content, post }: CreateCommentDTO, userId: string): Promise<IComment> {
   const comment = new Comment({ content, post, author: userId });
-  return comment.save();
+  await comment.save();
+  
+  await Post.findByIdAndUpdate(post, { $push: { comments: comment._id } });
+
+  return comment;
 }
 
 export async function updateCommentService(commentId: string, content: string, userId: string): Promise<IComment> {

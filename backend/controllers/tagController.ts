@@ -26,7 +26,7 @@ export async function createTag(req: Request, res: Response, next: NextFunction)
 
     const tag = new Tag({ name, slug });
     await tag.save();
-    res.status(201).json(tag);
+    res.status(200).json(tag);
   } catch (err) {
     next(err);
   }
