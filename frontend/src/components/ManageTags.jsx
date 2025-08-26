@@ -70,7 +70,7 @@ function ManageTags({ getTags }) {
           type="text"
           value={newTag}
           onChange={(e) => setNewTag(e.target.value)}
-          className="px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500"
+          className="px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
           placeholder="Enter new tag..."
         />
         <button type="button" onClick={handleAddTag} className="px-2 py-1 mt-2 bg-blue-800 rounded-lg text-nowrap">

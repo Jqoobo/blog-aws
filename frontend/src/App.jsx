@@ -70,14 +70,14 @@ function App() {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="px-4 py-2 text-black"
+          className="px-4 py-2 text-black border-2 border-transparent outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="px-4 py-2 text-black"
+          className="px-4 py-2 text-black border-2 border-transparent outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
         />
         {showRegister ? (
           <>

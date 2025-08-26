@@ -100,7 +100,7 @@ function AddPost({ getBlogs, getTags }) {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500"
+            className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
           />
         </div>
         <div>
@@ -108,7 +108,7 @@ function AddPost({ getBlogs, getTags }) {
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500"
+            className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
           />
         </div>
         <div>
@@ -118,7 +118,7 @@ function AddPost({ getBlogs, getTags }) {
               type="text"
               value={newTag}
               onChange={(e) => setNewTag(e.target.value)}
-              className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500"
+              className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
               placeholder="Nazwa tagu"
             />
             <button type="button" onClick={handleAddTag} className="px-2 py-1 mt-2 bg-blue-800 rounded-lg text-nowrap">

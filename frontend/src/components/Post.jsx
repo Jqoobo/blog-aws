@@ -193,7 +193,7 @@ function Post({ user }) {
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500"
+                className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
               />
             </div>
             <div>
@@ -201,7 +201,7 @@ function Post({ user }) {
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500"
+                className="w-full px-4 py-1 mt-2 text-black border-2 border-black outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
               />
             </div>
             <div>
@@ -273,7 +273,7 @@ function Post({ user }) {
                     <textarea
                       value={editingCommentText}
                       onChange={(e) => setEditingCommentText(e.target.value)}
-                      className="w-full py-1 px-4 outline-none min-h-[50px] border-[1px] border-black hover:border-amber-500 text-black"
+                      className="w-full py-1 px-4 outline-none min-h-[50px] border-[1px] border-black hover:border-amber-500 focus:border-amber-500 active:border-amber-500 text-black"
                     />
                     <button onClick={() => handleSaveComment(c._id)} className="px-3 py-1 my-2 bg-blue-800 rounded-lg">
                       Zapisz
@@ -307,7 +307,7 @@ function Post({ user }) {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             placeholder="Napisz coś miłego..."
-            className="w-full py-1 px-2 min-h-[50px] text-black outline-none border-[1px] border-black hover:border-amber-500"
+            className="w-full py-1 px-2 min-h-[50px] text-black outline-none border-[1px] border-black hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
           />
           <button onClick={handleAddComment} className="px-4 py-1 mt-2 text-lg bg-blue-700 rounded-lg">
             Dodaj komentarz
