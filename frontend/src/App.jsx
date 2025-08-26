@@ -67,14 +67,14 @@ function App() {
         <h2 className="text-3xl font-bold">{showRegister ? "Rejestracja" : "Logowanie"}</h2>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="Nazwa użytkownika"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="px-4 py-2 text-black border-2 border-transparent outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Hasło"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="px-4 py-2 text-black border-2 border-transparent outline-none hover:border-amber-500 focus:border-amber-500 active:border-amber-500"
