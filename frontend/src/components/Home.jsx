@@ -25,7 +25,7 @@ function Home() {
             >
               <div className="mb-1 text-right">{post.createdAt ? new Date(post.createdAt).toLocaleString() : ""}</div>
               <div className="flex flex-col">
-                <h3 className="mb-2 text-3xl font-bold">{post.title}</h3>
+                <h3 className="mb-2 text-3xl font-bold break-all">{post.title}</h3>
                 <div className="mb-2 text-sm text-gray-400">By {post.author?.username || post.author || "Unknown"}</div>
                 <div className="flex items-center justify-between w-full">
                   <div className="flex gap-2 mt-2">
