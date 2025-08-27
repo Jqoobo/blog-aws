@@ -13,7 +13,7 @@ provider:
   httpApi:
     cors:
       allowedOrigins:
-        - "https://dxjoq4rbyosiu.cloudfront.net"
+        - "https://dn86u231m91vc.cloudfront.net"
       allowedHeaders:
         - content-type
         - authorization

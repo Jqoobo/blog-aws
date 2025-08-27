@@ -14,7 +14,7 @@
       "httpApi": {
         "cors": {
           "allowedOrigins": [
-            "https://dxjoq4rbyosiu.cloudfront.net"
+            "https://dn86u231m91vc.cloudfront.net"
           ],
           "allowedHeaders": [
             "content-type",
@@ -128,7 +128,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-us-east-1-fa657a83-0760",
-                "S3Key": "serverless/my-express-on-lambda/dev/1756285618727-2025-08-27T09:06:58.727Z/my-express-on-lambda.zip"
+                "S3Key": "serverless/my-express-on-lambda/dev/1756288152490-2025-08-27T09:49:12.490Z/my-express-on-lambda.zip"
               },
               "Handler": "lambda.handler",
               "Runtime": "nodejs20.x",
@@ -153,14 +153,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E": {
+          "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "DmIC3Pgh6vSKUm/a9RQ5+cDo2dWCSxT6E0ywM1+JwKg="
+              "CodeSha256": "BevYr+lCcm2lnfE8mbe4IlHWr1vjnNW7zZWqaE1nhX4="
             }
           },
           "HttpApi": {
@@ -181,7 +181,7 @@
                   "OPTIONS"
                 ],
                 "AllowOrigins": [
-                  "https://dxjoq4rbyosiu.cloudfront.net"
+                  "https://dn86u231m91vc.cloudfront.net"
                 ]
               }
             }
@@ -303,7 +303,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E"
+              "Ref": "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g"
             },
             "Export": {
               "Name": "sls-my-express-on-lambda-dev-ApiLambdaFunctionQualifiedArn"
@@ -378,7 +378,7 @@
         "timeout": 15,
         "runtime": "nodejs20.x",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E"
+        "versionLogicalId": "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g"
       }
     },
     "configValidationMode": "warn",
@@ -416,7 +416,7 @@
         "artifactsS3KeyDirname": "serverless/my-express-on-lambda/dev/code-artifacts",
         "deploymentBucket": "serverless-framework-deployments-us-east-1-fa657a83-0760",
         "artifact": "/home/kubar/work/studia/blog-aws/backend/.serverless/build/my-express-on-lambda.zip",
-        "artifactDirectoryName": "serverless/my-express-on-lambda/dev/1756285618727-2025-08-27T09:06:58.727Z"
+        "artifactDirectoryName": "serverless/my-express-on-lambda/dev/1756288152490-2025-08-27T09:49:12.490Z"
       }
     },
     "appId": null,
@@ -428,7 +428,7 @@
     "layers": {}
   },
   "package": {
-    "artifactDirectoryName": "serverless/my-express-on-lambda/dev/1756285618727-2025-08-27T09:06:58.727Z",
+    "artifactDirectoryName": "serverless/my-express-on-lambda/dev/1756288152490-2025-08-27T09:49:12.490Z",
     "artifact": "my-express-on-lambda.zip"
   }
 }

@@ -18,7 +18,7 @@
         "httpApi": {
           "cors": {
             "allowedOrigins": [
-              "https://dxjoq4rbyosiu.cloudfront.net"
+              "https://dn86u231m91vc.cloudfront.net"
             ],
             "allowedHeaders": [
               "content-type",
@@ -132,7 +132,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-fa657a83-0760",
-                  "S3Key": "serverless/my-express-on-lambda/dev/1756285618727-2025-08-27T09:06:58.727Z/my-express-on-lambda.zip"
+                  "S3Key": "serverless/my-express-on-lambda/dev/1756288152490-2025-08-27T09:49:12.490Z/my-express-on-lambda.zip"
                 },
                 "Handler": "lambda.handler",
                 "Runtime": "nodejs20.x",
@@ -157,14 +157,14 @@
                 "ApiLogGroup"
               ]
             },
-            "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E": {
+            "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "ApiLambdaFunction"
                 },
-                "CodeSha256": "DmIC3Pgh6vSKUm/a9RQ5+cDo2dWCSxT6E0ywM1+JwKg="
+                "CodeSha256": "BevYr+lCcm2lnfE8mbe4IlHWr1vjnNW7zZWqaE1nhX4="
               }
             },
             "HttpApi": {
@@ -186,7 +186,7 @@
                     "OPTIONS"
                   ],
                   "AllowOrigins": [
-                    "https://dxjoq4rbyosiu.cloudfront.net"
+                    "https://dn86u231m91vc.cloudfront.net"
                   ]
                 }
               }
@@ -311,7 +311,7 @@
             "ApiLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E"
+                "Ref": "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g"
               },
               "Export": {
                 "Name": "sls-my-express-on-lambda-dev-ApiLambdaFunctionQualifiedArn"
@@ -400,7 +400,7 @@
           "timeout": 15,
           "runtime": "nodejs20.x",
           "vpc": {},
-          "versionLogicalId": "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E"
+          "versionLogicalId": "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g"
         }
       },
       "package": {
@@ -410,7 +410,7 @@
         "artifactsS3KeyDirname": "serverless/my-express-on-lambda/dev/code-artifacts",
         "deploymentBucket": "serverless-framework-deployments-us-east-1-fa657a83-0760",
         "artifact": "/home/kubar/work/studia/blog-aws/backend/.serverless/build/my-express-on-lambda.zip",
-        "artifactDirectoryName": "serverless/my-express-on-lambda/dev/1756285618727-2025-08-27T09:06:58.727Z"
+        "artifactDirectoryName": "serverless/my-express-on-lambda/dev/1756288152490-2025-08-27T09:49:12.490Z"
       }
     },
     "provider": {
@@ -423,7 +423,7 @@
       "httpApi": {
         "cors": {
           "allowedOrigins": [
-            "https://dxjoq4rbyosiu.cloudfront.net"
+            "https://dn86u231m91vc.cloudfront.net"
           ],
           "allowedHeaders": [
             "content-type",
@@ -537,7 +537,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-us-east-1-fa657a83-0760",
-                "S3Key": "serverless/my-express-on-lambda/dev/1756285618727-2025-08-27T09:06:58.727Z/my-express-on-lambda.zip"
+                "S3Key": "serverless/my-express-on-lambda/dev/1756288152490-2025-08-27T09:49:12.490Z/my-express-on-lambda.zip"
               },
               "Handler": "lambda.handler",
               "Runtime": "nodejs20.x",
@@ -562,14 +562,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E": {
+          "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "DmIC3Pgh6vSKUm/a9RQ5+cDo2dWCSxT6E0ywM1+JwKg="
+              "CodeSha256": "BevYr+lCcm2lnfE8mbe4IlHWr1vjnNW7zZWqaE1nhX4="
             }
           },
           "HttpApi": {
@@ -591,7 +591,7 @@
                   "OPTIONS"
                 ],
                 "AllowOrigins": [
-                  "https://dxjoq4rbyosiu.cloudfront.net"
+                  "https://dn86u231m91vc.cloudfront.net"
                 ]
               }
             }
@@ -716,7 +716,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E"
+              "Ref": "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g"
             },
             "Export": {
               "Name": "sls-my-express-on-lambda-dev-ApiLambdaFunctionQualifiedArn"
@@ -769,7 +769,7 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "serviceRawFile": "useDotenv: true\norg: w64191\nservice: my-express-on-lambda\nframeworkVersion: \"4\"\n\nprovider:\n  name: aws\n  profile: myprofile\n  runtime: nodejs20.x\n  region: us-east-1\n  timeout: 15\n  memorySize: 512\n  httpApi:\n    cors:\n      allowedOrigins:\n        - \"https://dxjoq4rbyosiu.cloudfront.net\"\n      allowedHeaders:\n        - content-type\n        - authorization\n      allowedMethods:\n        - GET\n        - POST\n        - PUT\n        - DELETE\n        - OPTIONS\n  environment:\n    MONGODB_URL: ${env:MONGODB_URL}\n    JWT_SECRET: ${env:JWT_SECRET}\n\nbuild:\n  esbuild: true\n  format: cjs\n  platform: node \n  minify: true\n  sourcemap: true\n  target: \"node20\"\n  keepNames: true\n  external:\n    - aws-sdk\n  loader:\n    \".json\": json\n\nfunctions:\n  api:\n    handler: lambda.handler\n    events:\n      - httpApi:\n          method: ANY\n          path: /\n      - httpApi:\n          method: ANY\n          path: /{proxy+}\npackage:\n  patterns:\n    - swagger.json",
+    "serviceRawFile": "useDotenv: true\norg: w64191\nservice: my-express-on-lambda\nframeworkVersion: \"4\"\n\nprovider:\n  name: aws\n  profile: myprofile\n  runtime: nodejs20.x\n  region: us-east-1\n  timeout: 15\n  memorySize: 512\n  httpApi:\n    cors:\n      allowedOrigins:\n        - \"https://dn86u231m91vc.cloudfront.net\"\n      allowedHeaders:\n        - content-type\n        - authorization\n      allowedMethods:\n        - GET\n        - POST\n        - PUT\n        - DELETE\n        - OPTIONS\n  environment:\n    MONGODB_URL: ${env:MONGODB_URL}\n    JWT_SECRET: ${env:JWT_SECRET}\n\nbuild:\n  esbuild: true\n  format: cjs\n  platform: node \n  minify: true\n  sourcemap: true\n  target: \"node20\"\n  keepNames: true\n  external:\n    - aws-sdk\n  loader:\n    \".json\": json\n\nfunctions:\n  api:\n    handler: lambda.handler\n    events:\n      - httpApi:\n          method: ANY\n          path: /\n      - httpApi:\n          method: ANY\n          path: /{proxy+}\npackage:\n  patterns:\n    - swagger.json",
     "command": [
       "deploy"
     ],
@@ -785,12 +785,12 @@
     "serviceProviderAwsCfStackName": "my-express-on-lambda-dev",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:583843720269:stack/my-express-on-lambda-dev/92c1c220-831c-11f0-b2c6-0ee2091f35e9",
     "serviceProviderAwsCfStackCreated": "2025-08-27T08:05:19.420Z",
-    "serviceProviderAwsCfStackUpdated": "2025-08-27T08:43:34.741Z",
+    "serviceProviderAwsCfStackUpdated": "2025-08-27T09:07:06.762Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "ApiLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:583843720269:function:my-express-on-lambda-dev-api:8",
+        "OutputValue": "arn:aws:lambda:us-east-1:583843720269:function:my-express-on-lambda-dev-api:9",
         "Description": "Current Lambda function version",
         "ExportName": "sls-my-express-on-lambda-dev-ApiLambdaFunctionQualifiedArn"
       },
@@ -905,7 +905,7 @@
           "Properties": {
             "Code": {
               "S3Bucket": "serverless-framework-deployments-us-east-1-fa657a83-0760",
-              "S3Key": "serverless/my-express-on-lambda/dev/1756285618727-2025-08-27T09:06:58.727Z/my-express-on-lambda.zip"
+              "S3Key": "serverless/my-express-on-lambda/dev/1756288152490-2025-08-27T09:49:12.490Z/my-express-on-lambda.zip"
             },
             "Handler": "lambda.handler",
             "Runtime": "nodejs20.x",
@@ -930,14 +930,14 @@
             "ApiLogGroup"
           ]
         },
-        "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E": {
+        "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "ApiLambdaFunction"
             },
-            "CodeSha256": "DmIC3Pgh6vSKUm/a9RQ5+cDo2dWCSxT6E0ywM1+JwKg="
+            "CodeSha256": "BevYr+lCcm2lnfE8mbe4IlHWr1vjnNW7zZWqaE1nhX4="
           }
         },
         "HttpApi": {
@@ -958,7 +958,7 @@
                 "OPTIONS"
               ],
               "AllowOrigins": [
-                "https://dxjoq4rbyosiu.cloudfront.net"
+                "https://dn86u231m91vc.cloudfront.net"
               ]
             }
           }
@@ -1083,7 +1083,7 @@
         "ApiLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "ApiLambdaVersionA4Qf0DcR4IiDrkWszpDAS5QcFIhtH3Q8axt1qFpjg9E"
+            "Ref": "ApiLambdaVersionmJI36kPCPcKXg5wTurbrTMvAEdcQ0uXt4rCtgDK2G8g"
           },
           "Export": {
             "Name": "sls-my-express-on-lambda-dev-ApiLambdaFunctionQualifiedArn"
