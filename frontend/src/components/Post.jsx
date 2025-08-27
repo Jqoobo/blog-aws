@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+const VITE_API_BASE = import.meta.env.VITE_API_BASE;
+
 function Post({ user }) {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
@@ -22,7 +24,7 @@ function Post({ user }) {
 
   async function fetchPost() {
     try {
-      const res = await axios.get(`/api/posts/${id}`);
+      const res = await axios.get(`${VITE_API_BASE}/api/posts/${id}`);
       const data = res.data;
       setBlog({
         ...data,
@@ -38,7 +40,7 @@ function Post({ user }) {
 
   async function fetchTags() {
     try {
-      const res = await axios.get("/api/tags");
+      const res = await axios.get(`${VITE_API_BASE}/api/tags`);
       setAvailableTags(res.data);
     } catch {
       setAvailableTags([]);
@@ -60,7 +62,7 @@ function Post({ user }) {
   async function handleSave() {
     try {
       const res = await axios.put(
-        `/api/posts/${id}`,
+        `${VITE_API_BASE}/api/posts/${id}`,
         {
           title,
           content,
@@ -88,7 +90,7 @@ function Post({ user }) {
     if (comment.trim() === "") return;
     try {
       const res = await axios.post(
-        "/api/comments",
+        `${VITE_API_BASE}/api/comments`,
         { content: comment, post: id },
         {
           headers: {
@@ -121,7 +123,7 @@ function Post({ user }) {
     if (editingCommentText.trim() === "") return;
     try {
       await axios.put(
-        `/api/comments/${commentId}`,
+        `${VITE_API_BASE}/api/comments/${commentId}`,
         { content: editingCommentText },
         {
           headers: {
@@ -144,7 +146,7 @@ function Post({ user }) {
 
   async function handleRemoveComment(commentId) {
     try {
-      const res = await axios.delete(`/api/comments/${commentId}`, {
+      const res = await axios.delete(`${VITE_API_BASE}/api/comments/${commentId}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

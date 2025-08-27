@@ -33,7 +33,14 @@ if (!config.isProd) {
 }
 
 app.use(express.json());
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: "Zbyt wiele żądań z tego IP, spróbuj ponownie później.",
+  headers: true,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 app.use("/swagger", serveSwagger, setupSwagger);
 
 app.get("/", (_req: Request, res: Response) => res.send("MERN Blog API is running"));
@@ -63,3 +70,5 @@ mongoose
   .catch((err) => {
     console.error("❌ MongoDB connection error:", err);
   });
+
+export default app;

@@ -1,0 +1,18 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch index.ts",
+    "build": "tsc",
+    "start": "node dist/index.ts",
+    "build:swagger": "node scripts/build-swagger.mjs",
+    "deploy": "npm run build:swagger && serverless deploy",
+    "package": "npm run build:swagger && serverless package"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {}
+}

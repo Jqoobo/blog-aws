@@ -1,0 +1,55 @@
+useDotenv: true
+org: w64191
+service: my-express-on-lambda
+frameworkVersion: "4"
+
+provider:
+  name: aws
+  profile: myprofile
+  runtime: nodejs20.x
+  region: us-east-1
+  timeout: 15
+  memorySize: 512
+  httpApi:
+    cors:
+      allowedOrigins:
+        - "https://dxjoq4rbyosiu.cloudfront.net"
+      allowedHeaders:
+        - content-type
+        - authorization
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+  environment:
+    MONGODB_URL: ${env:MONGODB_URL}
+    JWT_SECRET: ${env:JWT_SECRET}
+
+build:
+  esbuild: true
+  format: cjs
+  platform: node 
+  minify: true
+  sourcemap: true
+  target: "node20"
+  keepNames: true
+  external:
+    - aws-sdk
+  loader:
+    ".json": json
+
+functions:
+  api:
+    handler: lambda.handler
+    events:
+      - httpApi:
+          method: ANY
+          path: /
+      - httpApi:
+          method: ANY
+          path: /{proxy+}
+package:
+  patterns:
+    - swagger.json

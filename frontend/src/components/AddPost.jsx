@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const VITE_API_BASE = import.meta.env.VITE_API_BASE;
+
 function AddPost({ getBlogs, getTags }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -18,7 +20,7 @@ function AddPost({ getBlogs, getTags }) {
 
   async function fetchTags() {
     try {
-      const res = await axios.get("/api/tags");
+      const res = await axios.get(`${VITE_API_BASE}/api/tags`);
       setAvailableTags(res.data);
     } catch (err) {
       setMessage("Błąd pobierania tagów");
@@ -34,7 +36,7 @@ function AddPost({ getBlogs, getTags }) {
 
     try {
       const res = await axios.post(
-        "/api/posts",
+        `${VITE_API_BASE}/api/posts`,
         {
           title,
           content,
@@ -64,7 +66,7 @@ function AddPost({ getBlogs, getTags }) {
 
     try {
       const res = await axios.post(
-        "/api/tags",
+        `${VITE_API_BASE}/api/tags`,
         { name: newTag },
         {
           headers: {

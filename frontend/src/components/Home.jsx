@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const VITE_API_BASE = import.meta.env.VITE_API_BASE;
+
 function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("/api/posts")
+      .get(`${VITE_API_BASE}/api/posts`)
       .then((res) => setPosts(res.data.posts || []))
       .catch((err) => console.error(err));
   }, []);

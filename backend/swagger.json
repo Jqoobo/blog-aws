@@ -1,0 +1,437 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MERN Blog API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:2527"
+    }
+  ],
+  "paths": {
+    "/api/auth/register": {
+      "post": {
+        "summary": "Rejestracja nowego użytkownika",
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Użytkownik zarejestrowany"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Logowanie użytkownika",
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Zalogowano pomyślnie"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          },
+          "401": {
+            "description": "Nieprawidłowe dane logowania"
+          }
+        }
+      }
+    },
+    "/api/comments": {
+      "post": {
+        "summary": "Dodaj komentarz do posta",
+        "tags": [
+          "Comments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "post": {
+                    "type": "string",
+                    "description": "ID posta"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Komentarz utworzony"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      }
+    },
+    "/api/comments/{id}": {
+      "put": {
+        "summary": "Edytuj komentarz",
+        "tags": [
+          "Comments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID komentarza"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Komentarz zaktualizowany"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Usuń komentarz",
+        "tags": [
+          "Comments"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID komentarza"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Komentarz usunięty"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      }
+    },
+    "/api/posts": {
+      "get": {
+        "summary": "Pobierz wszystkie posty",
+        "tags": [
+          "Posts"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista postów"
+          }
+        }
+      },
+      "post": {
+        "summary": "Utwórz nowy post",
+        "tags": [
+          "Posts"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Post utworzony"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      }
+    },
+    "/api/posts/{id}": {
+      "get": {
+        "summary": "Pobierz post po ID",
+        "tags": [
+          "Posts"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID posta"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Szczegóły posta"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      },
+      "put": {
+        "summary": "Zaktualizuj post",
+        "tags": [
+          "Posts"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID posta"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Post zaktualizowany"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Usuń post",
+        "tags": [
+          "Posts"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID posta"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post usunięty"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      }
+    },
+    "/api/tags": {
+      "get": {
+        "summary": "Pobierz wszystkie tagi",
+        "tags": [
+          "Tags"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista tagów"
+          }
+        }
+      },
+      "post": {
+        "summary": "Utwórz nowy tag",
+        "tags": [
+          "Tags"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Tag utworzony"
+          },
+          "400": {
+            "description": "Błąd walidacji"
+          }
+        }
+      }
+    },
+    "/api/tags/{id}": {
+      "delete": {
+        "summary": "Usuń tag",
+        "tags": [
+          "Tags"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tag usunięty"
+          },
+          "404": {
+            "description": "Tag nie znaleziony"
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}

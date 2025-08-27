@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+const VITE_API_BASE = import.meta.env.VITE_API_BASE;
+
 function ManageTags({ getTags }) {
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
@@ -12,7 +14,7 @@ function ManageTags({ getTags }) {
 
   async function fetchTags() {
     try {
-      const res = await axios.get("/api/tags");
+      const res = await axios.get(`${VITE_API_BASE}/api/tags`);
       setTags(res.data);
     } catch (err) {
       setMessage("Błąd pobierania tagów");
@@ -24,7 +26,7 @@ function ManageTags({ getTags }) {
 
     try {
       const res = await axios.post(
-        "/api/tags",
+        `${VITE_API_BASE}/api/tags`,
         { name: newTag },
         {
           headers: {
@@ -47,7 +49,7 @@ function ManageTags({ getTags }) {
       const tagObj = tags.find((t) => t.name === tag);
       if (!tagObj) return setMessage("Nie znaleziono tagu");
 
-      const res = await axios.delete(`/api/tags/${tagObj._id}`, {
+      const res = await axios.delete(`${VITE_API_BASE}/api/tags/${tagObj._id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

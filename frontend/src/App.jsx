@@ -6,6 +6,8 @@ import ManageTags from "./components/ManageTags";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 
+const VITE_API_BASE = import.meta.env.VITE_API_BASE;
+
 function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -16,7 +18,7 @@ function App() {
 
   async function login(username, password) {
     try {
-      const res = await axios.post("/api/auth/login", {
+      const res = await axios.post(`${VITE_API_BASE}/api/auth/login`, {
         username,
         password,
       });
@@ -37,7 +39,7 @@ function App() {
 
   async function register(username, password) {
     try {
-      const res = await axios.post("/api/auth/register", {
+      const res = await axios.post(`${VITE_API_BASE}/api/auth/register`, {
         username,
         password,
       });
