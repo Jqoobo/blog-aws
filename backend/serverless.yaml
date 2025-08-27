@@ -7,13 +7,13 @@ provider:
   name: aws
   profile: myprofile
   runtime: nodejs20.x
-  region: us-east-1
+  region: eu-central-1
   timeout: 15
   memorySize: 512
   httpApi:
     cors:
       allowedOrigins:
-        - "https://dn86u231m91vc.cloudfront.net"
+        - "https://daih490vt5nvd.cloudfront.net"
       allowedHeaders:
         - content-type
         - authorization
